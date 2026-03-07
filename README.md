@@ -331,6 +331,85 @@ Used to configure communication channels such as REST APIs for interacting with 
 Defines service endpoints such as the action server configuration used by the chatbot.
 
 
+## Epic 3: Data Collection & Model Building
+
+This milestone focuses on collecting relevant training data, organizing it properly, and building the chatbot model using the Rasa framework. Data collection and model building are critical phases in a conversational AI project because the chatbot’s accuracy and effectiveness depend heavily on the quality of training data and the correctness of model training.
+
+During this stage, user queries are defined, chatbot responses are created, conversation flows are designed, and the chatbot model is trained so that it can understand and respond to user inputs effectively.
+
+---
+
+### Story 1: Data Collection – Creating User Queries (nlu.yml)
+
+Data collection begins by identifying the different ways users might interact with the chatbot. Since the chatbot recommends quotes, users may request motivation, inspiration, humor, love, or success-related quotes in different ways.
+
+In Rasa, user training data is defined in the **nlu.yml** file using the YAML format. This file contains example user queries that are mapped to specific intents, which represent the purpose behind the user’s message.
+
+Each intent contains multiple example sentences that capture variations in user language. These examples help the model learn patterns and correctly classify future user inputs.
+
+For this chatbot, intents such as **greet, motivation, inspiration, love, funny, success, and goodbye** are defined. Providing multiple examples for each intent helps the chatbot understand different ways users may express the same request, improving intent recognition accuracy and the overall conversational experience.
+
+---
+
+### Story 2: Creating Bot Responses (domain.yml)
+
+After defining user intents, the next step is to specify how the chatbot should respond. This is done in the **domain.yml** file, which acts as the central configuration file for the chatbot.
+
+The domain file defines:
+
+* Supported intents
+* Predefined chatbot responses
+* Custom actions
+* Session configuration
+
+For the Quotes Recommendation Chatbot, responses such as **utter_motivation, utter_inspiration, utter_funny, utter_love, and utter_success** are created. Each response contains carefully selected quotes related to the corresponding intent.
+
+Multiple variations of responses are included so that the chatbot does not repeat the same reply every time. This helps maintain user engagement and ensures users receive fresh and relevant content during repeated interactions.
+
+---
+
+### Story 3: Defining Interaction Between User and Chatbot (stories.yml)
+
+After defining intents and responses, the next step is to design the conversational flow of the chatbot. This is done using the **stories.yml** file.
+
+Stories represent example conversations between the user and the chatbot. Each story consists of a sequence of user intents followed by the corresponding bot actions.
+
+For example, when a user requests a motivational quote, the chatbot responds with a relevant quote and may ask whether the response was helpful. These conversation patterns help the system learn how to manage dialogue and maintain context during conversations.
+
+By defining these interaction patterns, the chatbot learns to follow a structured and logical conversation flow rather than responding randomly.
+
+---
+
+### Story 4: Model Training
+
+Once the training data, domain configuration, and conversation stories are prepared, the next step is to train the chatbot model.
+
+Rasa provides a single command to train both the Natural Language Understanding (NLU) and dialogue management components.
+
+Training command:
+
+rasa train
+
+This command processes the data defined in **nlu.yml**, **stories.yml**, and **domain.yml**, and trains the chatbot model accordingly.
+
+During training, the system learns how to:
+
+* Classify user intents
+* Understand conversational context
+* Select appropriate responses
+
+After successful training, the trained model is automatically saved in the **models/** directory.
+
+---
+
+### Story 5: Model Storage and Reusability
+
+The trained model files stored in the **models** directory can be reused for testing, deployment, or further improvements. These models contain the learned patterns from the training process and allow the chatbot to respond intelligently to user queries.
+
+Saving the trained model also enables the chatbot to be deployed on servers or integrated with web and messaging platforms. Additionally, the model can be retrained with new data in the future to improve accuracy and expand its capabilities.
+
+
+
 
 
 
