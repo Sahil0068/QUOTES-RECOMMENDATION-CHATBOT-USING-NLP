@@ -411,6 +411,104 @@ Saving the trained model also enables the chatbot to be deployed on servers or i
 
 
 
+## Epic 4: Testing & Deployment
+
+This milestone focuses on validating the performance of the trained chatbot model and making it accessible to users through deployment. Testing ensures that the chatbot correctly understands user inputs and provides appropriate responses, while deployment allows users to interact with the chatbot through a web-based interface.
+
+Effective testing and deployment are essential to guarantee the reliability, usability, and overall performance of the Quotes Recommendation Chatbot using Rasa NLU.
+
+---
+
+### Story 1: Model Testing Using Rasa Shell
+
+The first step in testing the chatbot is to interact with the trained model using the Rasa command-line interface.
+
+**Rasa Shell Initialization**
+
+To start the chatbot in interactive mode, the following command is used:
+
+rasa shell
+
+This command loads the trained model and allows the developer to communicate with the chatbot directly through the terminal.
+
+**Testing Process**
+
+During testing, different types of user inputs are provided to evaluate the chatbot’s behavior. These include:
+
+* Requests for motivational, inspirational, humorous, love, and success quotes
+* Greeting and farewell messages
+* Different variations of user sentences
+
+The responses are carefully observed to ensure that:
+
+* The correct intent is detected
+* The appropriate quote category is returned
+* The conversation follows the defined dialogue flow
+
+This interactive testing helps identify issues such as incorrect intent classification or missing training examples.
+
+---
+
+### Story 2: Testing Using Test Stories
+
+In addition to manual testing, automated testing can be performed using predefined test stories. These test cases verify whether the chatbot follows the expected conversation paths after training.
+
+Test stories help ensure:
+
+* Consistent responses from the chatbot
+* Stable conversation flow
+* No regression issues after retraining the model
+
+This approach strengthens the reliability and robustness of the chatbot system.
+
+---
+
+### Story 3: Deployment Using Web Interface
+
+After successful testing, the chatbot is deployed so that users can interact with it through a web interface instead of a command-line environment.
+
+**Enabling REST API Communication**
+
+To allow communication between the web interface and the chatbot backend, the REST channel is enabled in the credentials.yml file. This configuration allows external applications to send user messages to the chatbot and receive responses.
+
+**Running the Rasa Server**
+
+The chatbot server is started with API and CORS support using the following command:
+
+rasa run --enable-api --cors "*"
+
+This command launches the Rasa server and enables communication between the chatbot backend and the web interface.
+
+**Web Interface Execution**
+
+A Flask-based web application is used to provide a simple chat interface for users. The interface contains a chat window where users can type messages and receive responses from the chatbot.
+
+The web interface performs the following functions:
+
+* Captures user input from the chat window
+* Sends messages to the Rasa REST API
+* Displays chatbot responses dynamically
+
+This setup allows users to interact with the chatbot easily through a browser.
+
+---
+
+### Story 4: Validation of Deployed Chatbot
+
+After deployment, the chatbot is tested again using the web interface to ensure that the system works correctly in a real-world environment.
+
+The validation process verifies:
+
+* Proper connectivity between the frontend interface and the backend chatbot server
+* Real-time delivery of chatbot responses
+* Correct display of chatbot messages in the web interface
+* Stable performance during continuous interactions
+
+Successful validation confirms that the chatbot is functioning correctly and is ready for practical use.
+
+
+
+
 
 
 
