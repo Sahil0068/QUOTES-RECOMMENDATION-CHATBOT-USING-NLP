@@ -505,6 +505,16 @@ The validation process verifies:
 * Stable performance during continuous interactions
 
 Successful validation confirms that the chatbot is functioning correctly and is ready for practical use.
+## Screenshots
+
+### Chatbot Running in Terminal
+![Terminal](screenshots/terminal.png)
+
+### Web Interface
+![Web Interface](screenshots/web_interface.png)
+
+### Chat Example
+![Chat Example](screenshots/chat_example.png)
 
 
 Conclusion
